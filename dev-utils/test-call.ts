@@ -6,10 +6,9 @@ import { getHistoricRates, Config } from '../src';
     const config: Config = {
       instrument: 'eurusd',
       dates: {
-        from: '2022-04-22',
-        to: '2022-04-23'
+        from: 1653004800000
       },
-      timeframe: 'm1',
+      timeframe: 'h1',
       format: 'array',
       useCache: false,
       ignoreFlats: false
@@ -20,7 +19,7 @@ import { getHistoricRates, Config } from '../src';
     const quotes = await getHistoricRates(config);
     const d2 = +new Date();
     // console.log('fetching success');
-    // console.log(JSON.stringify(quotes));
+    console.log(JSON.stringify(quotes));
     console.log(`time ms: ${d2 - d1}`);
   } catch (error) {
     console.log('error', error);

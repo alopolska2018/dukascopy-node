@@ -22,7 +22,7 @@ export const schema: InputSchema<Config> = {
     required: true,
     props: {
       from: { type: 'date', convert: true, required: true } as RuleDate,
-      to: { type: 'date', convert: true, required: true } as RuleDate
+      to: { type: 'date', convert: true, default: defaultConfig.dates.to } as RuleDate
     }
   } as RuleObject,
   timeframe: {

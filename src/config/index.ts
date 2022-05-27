@@ -10,7 +10,7 @@ export interface Config {
   instrument: InstrumentType;
   dates: {
     from: DateInput;
-    to: DateInput;
+    to?: DateInput;
   };
   timeframe?: TimeframeType;
   priceType?: PriceType;
@@ -26,10 +26,13 @@ export interface Config {
   pauseBetweenRetriesMs?: number;
 }
 
-export type DefaultConfig = Required<Pick<Config, OptionalKeys<Config>>>;
+export type DefaultConfig = Required<Pick<Config, OptionalKeys<Config>>> & { dates: { to: Date } };
 
 export const defaultConfig: DefaultConfig = {
   timeframe: Timeframe.d1,
+  dates: {
+    to: new Date()
+  },
   priceType: Price.bid,
   utcOffset: 0,
   volumes: true,

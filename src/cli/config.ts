@@ -12,7 +12,7 @@ program
   .option('-s, --silent', 'Hides the search config in the CLI output', false)
   .requiredOption('-i, --instrument <value>', 'Trading instrument')
   .requiredOption('-from, --date-from <value>', 'From date (yyyy-mm-dd)')
-  .requiredOption('-to, --date-to <value>', 'To date (yyyy-mm-dd)')
+  .option('-to, --date-to <value>', 'To date (yyyy-mm-dd)', new Date().toISOString())
   .option(
     '-t, --timeframe <value>',
     'Timeframe aggregation (tick, m1, m5, m15, m30, h1, h4, d1, mn1)',
