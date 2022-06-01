@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 import { getFormattedDate } from '../date';
+import { titleMap } from './generate-instrument-title-map';
 import { InstrumentMetaData } from './generate-meta';
 
 import instrumentGroups from './generated/instrument-groups.json';
@@ -11,42 +12,6 @@ import instrumentMetaData from './generated/instrument-meta-data.json';
 const saveFile = promisify(fs.writeFile);
 
 const filePath = path.resolve(__dirname, 'generated', 'instruments.md');
-
-const titleMap: Record<string, { emoji: string; title: string }> = {
-  bnd_cfd: { emoji: '📊', title: 'Bonds' },
-  vccy: { emoji: '₿', title: 'Crypto assets' },
-  cmd_agricultural: { emoji: '☕', title: 'Agricultural commodities' },
-  cmd_energy: { emoji: '⚡', title: 'Energy commodities' },
-  cmd_metals: { emoji: '⚙️', title: 'Metals commodities' },
-  etf_cfd_us: { emoji: '🇺🇸📈', title: 'United States ETFs' },
-  etf_cfd_de: { emoji: '🇩🇪📈', title: 'Germany ETFs' },
-  etf_cfd_fr: { emoji: '🇫🇷📈', title: 'France ETFs' },
-  etf_cfd_hk: { emoji: '🇭🇰📈', title: 'Hong Kong ETFs' },
-  fx_crosses: { emoji: '💱', title: 'Forex currencies' },
-  fx_majors: { emoji: '💶', title: 'Forex major currencies' },
-  fx_metals: { emoji: '🥇', title: 'Forex metals' },
-  idx_america: { emoji: '🌎', title: 'America' },
-  idx_asia: { emoji: '🌏', title: 'Asia' },
-  idx_europe: { emoji: '🌍', title: 'Europe' },
-  austria: { emoji: '🇦🇹', title: 'Austria' },
-  belgium: { emoji: '🇧🇪', title: 'Belgium' },
-  denmark: { emoji: '🇩🇰', title: 'Denmark' },
-  finland: { emoji: '🇫🇮', title: 'Finland' },
-  france: { emoji: '🇫🇷', title: 'France' },
-  germany: { emoji: '🇩🇪', title: 'Germany' },
-  italy: { emoji: '🇮🇹', title: 'Italy' },
-  ireland: { emoji: '🇮🇪', title: 'Ireland' },
-  netherlands: { emoji: '🇳🇱', title: 'Netherlands' },
-  norway: { emoji: '🇳🇴', title: 'Norway' },
-  portugal: { emoji: '🇵🇹', title: 'Portugal' },
-  spain: { emoji: '🇪🇸', title: 'Spain' },
-  sweden: { emoji: '🇸🇪', title: 'Sweden' },
-  switzerland: { emoji: '🇨🇭', title: 'Switzerland' },
-  japan: { emoji: '🇯🇵', title: 'Japan' },
-  'hong-kong': { emoji: '🇭🇰', title: 'Hong Kong' },
-  uk: { emoji: '🇬🇧', title: 'United Kingdom' },
-  us: { emoji: '🇺🇸', title: 'United States' }
-};
 
 (async () => {
   try {
