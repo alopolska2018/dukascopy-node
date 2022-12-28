@@ -47,6 +47,7 @@
 		"cli-progress": "3.10.0",
 		"commander": "5.0.0",
 		"debug": "4.3.4",
+		"dukascopy-node": "1.29.0",
 		"fastest-validator": "1.10.0",
 		"fs-extra": "10.1.0",
 		"lzma-purejs": "0.9.3",

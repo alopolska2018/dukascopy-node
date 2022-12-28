@@ -5,10 +5,10 @@ const { getHistoricalRates } = require('dukascopy-node');
     const data = await getHistoricalRates({
       instrument: 'eurusd',
       dates: {
-        from: new Date('2021-02-01'),
-        to: new Date('2021-03-01')
+        from: new Date('2022-12-01'),
+        to: new Date('2022-12-28')
       },
-      timeframe: 'd1',
+      timeframe: 'm5',
       format: 'csv'
     });
 
